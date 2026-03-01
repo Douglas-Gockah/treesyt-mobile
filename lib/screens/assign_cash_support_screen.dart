@@ -18,21 +18,19 @@ const Color _kTextLtGray   = Color(0xFFA3A3A3);
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const List<int> _kAmounts = [50, 100, 150, 200, 250, 300, 400, 500];
 
-// Years with prior submissions (locked / already used).
-const Set<int> _kSubmittedYears = {2024, 2025};
-const List<int> _kYears = [2024, 2025, 2026];
-
 // ─── Screen ───────────────────────────────────────────────────────────────────
 class AssignCashSupportScreen extends StatefulWidget {
   final String groupName;
   final int selectedFarmers;
   final int totalFarmers;
+  final int year;
 
   const AssignCashSupportScreen({
     super.key,
     this.groupName = 'Jirapa Fields Cooperative',
     this.selectedFarmers = 8,
     this.totalFarmers = 11,
+    this.year = 2026,
   });
 
   @override
@@ -43,8 +41,6 @@ class AssignCashSupportScreen extends StatefulWidget {
 class _AssignCashSupportScreenState extends State<AssignCashSupportScreen> {
   int  _amountPerFarmer = 100;
   bool _doubleAmount    = false;
-  // Default to current year; previous years are shown as already submitted.
-  int  _year            = 2026;
 
   int get _effectiveAmount =>
       _doubleAmount ? _amountPerFarmer * 2 : _amountPerFarmer;
@@ -57,7 +53,7 @@ class _AssignCashSupportScreenState extends State<AssignCashSupportScreen> {
           groupName: widget.groupName,
           selectedFarmers: widget.selectedFarmers,
           totalFarmers: widget.totalFarmers,
-          year: _year,
+          year: widget.year,
           amountPerFarmer: _amountPerFarmer,
           doubleAmount: _doubleAmount,
           effectiveAmountPerFarmer: _effectiveAmount,
@@ -112,15 +108,6 @@ class _AssignCashSupportScreenState extends State<AssignCashSupportScreen> {
 
                             // §6 Request details header
                             const _RequestDetailsHeader(),
-
-                            // Year selector — between header and cash card
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                              child: _YearField(
-                                year: _year,
-                                onChanged: (y) => setState(() => _year = y),
-                              ),
-                            ),
 
                             // §7 Cash support card
                             Padding(
@@ -269,107 +256,6 @@ class _RequestDetailsHeader extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-// ─── Year selector field ──────────────────────────────────────────────────────
-// Shows 2024 and 2025 as already-submitted; 2026 is the current year.
-class _YearField extends StatelessWidget {
-  final int year;
-  final ValueChanged<int> onChanged;
-
-  const _YearField({required this.year, required this.onChanged});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Support year',
-          style: TextStyle(
-            fontFamily: 'Inter',
-            fontWeight: FontWeight.w400,
-            fontSize: 14,
-            color: _kTextDark,
-            letterSpacing: 0.25,
-            height: 1.5,
-          ),
-        ),
-        const SizedBox(height: 6),
-        _StyledDropdown<int>(
-          value: year,
-          // Closed state: only show the year number.
-          selectedItemBuilder: (_) => _kYears
-              .map(
-                (y) => Padding(
-                  padding: const EdgeInsets.only(left: 14),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      '$y',
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: _kTextDark,
-                        letterSpacing: 0.25,
-                      ),
-                    ),
-                  ),
-                ),
-              )
-              .toList(),
-          // Open state: show year + "Submitted" badge for prior years.
-          items: _kYears.map((y) {
-            final submitted = _kSubmittedYears.contains(y);
-            return DropdownMenuItem<int>(
-              value: y,
-              child: Row(
-                children: [
-                  Text(
-                    '$y',
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                      color: submitted ? _kTextGray : _kTextDark,
-                      letterSpacing: 0.25,
-                    ),
-                  ),
-                  if (submitted) ...[
-                    const SizedBox(width: 8),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: _kGreenLight,
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: const Text(
-                        'Submitted',
-                        style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
-                          color: _kGreenDark,
-                          letterSpacing: 0.2,
-                        ),
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            );
-          }).toList(),
-          onChanged: (v) {
-            if (v != null) onChanged(v);
-          },
-        ),
-      ],
     );
   }
 }

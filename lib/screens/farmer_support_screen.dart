@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'record_support_screen.dart';
+import 'year_selection_screen.dart';
 import 'recoveries_screen.dart';
 import 'support_progress_screen.dart';
 
@@ -42,7 +42,7 @@ class FarmerSupportScreen extends StatelessWidget {
       icon: const Icon(Icons.assignment_outlined, color: _kIconGray, size: 18),
       hasCircle: true,
       label: 'Record support',
-      destination: (_) => const RecordSupportScreen(),
+      destination: (_) => const YearSelectionScreen(),
     ),
 
     // Item 2 — Support Progress

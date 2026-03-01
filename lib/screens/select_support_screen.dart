@@ -20,7 +20,9 @@ const List<String> _kSupportOptions = ['Ploughing', 'Cash', 'Farm inputs'];
 
 // ─── Screen ───────────────────────────────────────────────────────────────────
 class SelectSupportScreen extends StatefulWidget {
-  const SelectSupportScreen({super.key});
+  final int year;
+
+  const SelectSupportScreen({super.key, required this.year});
 
   @override
   State<SelectSupportScreen> createState() => _SelectSupportScreenState();
@@ -38,7 +40,7 @@ class _SelectSupportScreenState extends State<SelectSupportScreen> {
   void _proceed() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (_) => const AssignCashSupportScreen()),
+      MaterialPageRoute(builder: (_) => AssignCashSupportScreen(year: widget.year)),
     );
   }
 

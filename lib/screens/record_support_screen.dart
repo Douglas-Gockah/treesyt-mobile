@@ -56,7 +56,9 @@ const List<_Group> _kGroups = [
 
 // ─── Screen ───────────────────────────────────────────────────────────────────
 class RecordSupportScreen extends StatefulWidget {
-  const RecordSupportScreen({super.key});
+  final int year;
+
+  const RecordSupportScreen({super.key, required this.year});
 
   @override
   State<RecordSupportScreen> createState() => _RecordSupportScreenState();
@@ -92,7 +94,7 @@ class _RecordSupportScreenState extends State<RecordSupportScreen> {
     Navigator.push(
       ctx,
       MaterialPageRoute(
-        builder: (_) => FarmerSelectionScreen(groupName: group.name),
+        builder: (_) => FarmerSelectionScreen(groupName: group.name, year: widget.year),
       ),
     );
   }
