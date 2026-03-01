@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'record_consent_screen.dart';
+
 // ─── Colours (spec-exact) ─────────────────────────────────────────────────────
 const Color _kGreen      = Color(0xFF18A369);
 const Color _kBgLight    = Color(0xFFF5F5F5);
@@ -34,15 +36,9 @@ class ReviewSubmitScreen extends StatelessWidget {
   int get _total => effectiveAmountPerFarmer * selectedFarmers;
 
   void _submit(BuildContext context) {
-    // TODO: submit request and navigate to success screen
-    debugPrint(
-      '[ReviewSubmit] Submitting:'
-      ' group=$groupName'
-      ' farmers=$selectedFarmers'
-      ' year=$year'
-      ' amount=$effectiveAmountPerFarmer'
-      ' total=$_total'
-      ' doubleAmount=$doubleAmount',
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const RecordConsentScreen()),
     );
   }
 
