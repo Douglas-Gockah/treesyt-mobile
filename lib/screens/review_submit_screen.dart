@@ -247,8 +247,8 @@ class _SupportDetailsCard extends StatelessWidget {
                     // Year badge
                     Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 3,
+                        horizontal: 10,
+                        vertical: 4,
                       ),
                       decoration: BoxDecoration(
                         color: const Color(0xFFE8F7F1),
@@ -260,7 +260,7 @@ class _SupportDetailsCard extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w600,
-                          fontSize: 11,
+                          fontSize: 12,
                           color: Color(0xFF198246),
                           letterSpacing: 0.3,
                         ),
@@ -284,9 +284,9 @@ class _SupportDetailsCard extends StatelessWidget {
                   ],
                 ),
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 const Divider(height: 1, thickness: 1, color: _kDivider),
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
 
                 // Row 2 — amount per farmer
                 Row(
@@ -307,23 +307,23 @@ class _SupportDetailsCard extends StatelessWidget {
 
                 // Double-bags note (only shown when doubleAmount is true)
                 if (doubleAmount) ...[
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 8),
                   Row(
                     children: [
                       const Icon(
                         Icons.swap_vert_rounded,
-                        size: 14,
+                        size: 16,
                         color: Color(0xFF198246),
                       ),
-                      const SizedBox(width: 4),
+                      const SizedBox(width: 6),
                       Text(
                         'Double bags — returns 2 bags at recovery',
                         style: const TextStyle(
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Color(0xFF198246),
-                          letterSpacing: 0.3,
+                          letterSpacing: 0.2,
                           height: 1.5,
                         ),
                       ),
@@ -331,9 +331,9 @@ class _SupportDetailsCard extends StatelessWidget {
                   ),
                 ],
 
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 const Divider(height: 1, thickness: 1, color: _kDivider),
-                const SizedBox(height: 14),
+                const SizedBox(height: 16),
 
                 // Row 3 — total amount (prominent)
                 Row(
@@ -375,7 +375,7 @@ class _SupportDetailsCard extends StatelessWidget {
                   ],
                 ),
 
-                const SizedBox(height: 4),
+                const SizedBox(height: 8),
 
                 // Calculation note — e.g. "GHC 700 × 8 farmers"
                 Text(
@@ -383,9 +383,9 @@ class _SupportDetailsCard extends StatelessWidget {
                   style: const TextStyle(
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w400,
-                    fontSize: 12,
+                    fontSize: 14,
                     color: _kTextLtGray,
-                    letterSpacing: 0.3,
+                    letterSpacing: 0.2,
                     height: 1.5,
                   ),
                 ),

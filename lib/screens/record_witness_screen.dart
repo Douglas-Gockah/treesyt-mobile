@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'success_screen.dart';
 import 'voice_note_recorder.dart';
 
 class RecordWitnessScreen extends StatelessWidget {
@@ -9,10 +10,10 @@ class RecordWitnessScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return VoiceNoteRecorder(
       headerText: "Take witness's voice note as evidence",
-      onProceed: () {
-        // TODO: navigate to submission success screen
-        debugPrint('[RecordWitness] All recordings complete — submitting.');
-      },
+      onProceed: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const SuccessScreen()),
+      ),
     );
   }
 }

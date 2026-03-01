@@ -393,9 +393,10 @@ class _VoiceNoteRecorderState extends State<VoiceNoteRecorder>
                     ),
 
                     // ── Bottom buttons ────────────────────────────────────
+                    const Divider(height: 1, thickness: 1, color: _kDivider),
                     Container(
                       color: Colors.white,
-                      padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
                       child: Row(
                         children: [
                           // "Record again"
@@ -453,7 +454,7 @@ class _ScriptDropdown extends StatelessWidget {
             onTap: onToggle,
             borderRadius: BorderRadius.circular(6),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: Row(
                 children: [
                   const Expanded(
@@ -492,7 +493,7 @@ class _ScriptDropdown extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Divider(color: _kGreen, height: 1, thickness: 1),
-                  const SizedBox(height: 12),
+                  const SizedBox(height: 16),
                   Text(
                     _kScript,
                     style: const TextStyle(

@@ -343,7 +343,7 @@ class _YearField extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 8,
-                        vertical: 2,
+                        vertical: 4,
                       ),
                       decoration: BoxDecoration(
                         color: _kGreenLight,
@@ -354,7 +354,7 @@ class _YearField extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w500,
-                          fontSize: 11,
+                          fontSize: 12,
                           color: _kGreenDark,
                           letterSpacing: 0.2,
                         ),
@@ -596,15 +596,15 @@ class _DoubleAmountRow extends StatelessWidget {
                       height: 1.5,
                     ),
                   ),
-                  const SizedBox(height: 2),
+                  const SizedBox(height: 4),
                   const Text(
                     'Farmer returns 2 bags at recovery',
                     style: TextStyle(
                       fontFamily: 'Inter',
                       fontWeight: FontWeight.w400,
-                      fontSize: 12,
+                      fontSize: 14,
                       color: _kTextGray,
-                      letterSpacing: 0.4,
+                      letterSpacing: 0.25,
                       height: 1.5,
                     ),
                   ),
@@ -640,7 +640,7 @@ class _DoubleAmountRow extends StatelessWidget {
                       style: const TextStyle(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w400,
-                        fontSize: 13,
+                        fontSize: 14,
                         color: _kGreenDark,
                         letterSpacing: 0.2,
                         height: 1.5,
@@ -652,11 +652,10 @@ class _DoubleAmountRow extends StatelessWidget {
                           style: const TextStyle(fontWeight: FontWeight.w600),
                         ),
                         TextSpan(
-                          text:
-                              '  (${amount} × 2 bags at recovery)',
+                          text: '  ($amount × 2 bags at recovery)',
                           style: const TextStyle(
                             color: _kTextGray,
-                            fontSize: 12,
+                            fontSize: 14,
                           ),
                         ),
                       ],

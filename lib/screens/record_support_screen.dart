@@ -365,7 +365,7 @@ class _GroupRow extends StatelessWidget {
                     ),
                   ),
 
-                  // Status text — Inter Medium 12 px, colour by status
+                  // Status text — Inter Medium 14 px, colour by status
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
                     child: Text(
@@ -373,10 +373,10 @@ class _GroupRow extends StatelessWidget {
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontWeight: FontWeight.w500,
-                        fontSize: 12,
+                        fontSize: 14,
                         color: group.status.color,
-                        letterSpacing: 0.5,
-                        height: 16 / 12,
+                        letterSpacing: 0.25,
+                        height: 20 / 14,
                       ),
                     ),
                   ),
