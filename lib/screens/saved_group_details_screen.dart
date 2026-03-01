@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'farmer_selection_screen.dart' show SelectedFarmer;
+import 'select_support_screen.dart';
 
 // ─── Colours (spec-exact) ─────────────────────────────────────────────────────
 const Color _kGreen        = Color(0xFF18A369);
@@ -67,13 +68,12 @@ class _SavedGroupDetailsScreenState extends State<SavedGroupDetailsScreen> {
   // choices already ticked).
   void _editList() => Navigator.pop(context);
 
-  // "Select support" — proceed to next step (stub until that screen exists).
+  // "Select support" — push the Select Support Services screen.
   void _selectSupport() {
-    debugPrint(
-      '[SavedGroupDetails] Proceeding — '
-      '${widget.selectedFarmers.length} farmers in ${widget.groupName}',
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const SelectSupportScreen()),
     );
-    // TODO: Navigator.push to SupportSelectionScreen
   }
 
   @override
