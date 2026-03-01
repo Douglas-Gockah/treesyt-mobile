@@ -1,0 +1,34 @@
+name: treesyt_mobile
+description: TreeSyt mobile app for field data collection (offline-first).
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Local offline storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.1.4
+
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.4.2
+
+  # Icons
+  cupertino_icons: ^1.0.8
+
+  # UI / Design system
+  flutter_screenutil: ^5.9.3   # Normalises sizes across all device screen densities
+  google_fonts: ^6.2.1         # Loads Inter font (TreeSyt brand typeface)
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true

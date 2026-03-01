@@ -1,0 +1,40 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+*.g.dart
+
+# Flutter plugins (auto-generated)
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Pub cache
+.pub-cache/
+.pub/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+*.xcuserstate
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# Hive local data (never commit local device databases)
+*.hive
+*.lock
+
+# Android keystore / signing
+*.jks
+*.keystore
+key.properties
+
+# iOS CocoaPods
+ios/Pods/
+ios/Flutter/flutter_export_environment.sh
+
+# Generated files from `flutter pub run build_runner`
+*.freezed.dart
+*.gr.dart
