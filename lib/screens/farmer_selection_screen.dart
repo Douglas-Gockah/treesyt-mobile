@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'saved_group_details_screen.dart';
+
+// ─── Public model passed to the review screen ─────────────────────────────────
+class SelectedFarmer {
+  final String name;
+  final String farmerId;
+  final Color avatarColor;
+
+  const SelectedFarmer({
+    required this.name,
+    required this.farmerId,
+    required this.avatarColor,
+  });
+}
+
 // ─── Colours (spec-exact) ─────────────────────────────────────────────────────
 const Color _kGreen        = Color(0xFF18A369);
 const Color _kDivider      = Color(0xFFE5E5E5);
@@ -112,11 +127,27 @@ class _FarmerSelectionScreenState extends State<FarmerSelectionScreen> {
 
   void _save() {
     if (_selected.isEmpty) return;
-    final names = _selected.map((i) => _kFarmers[i].name).toList();
-    debugPrint(
-      '[FarmerSelection] group=${widget.groupName}, saved=$names',
+    // Build ordered list (by original farmer index) for the review screen
+    final ordered = (_selected.toList()..sort())
+        .map(
+          (i) => SelectedFarmer(
+            name: _kFarmers[i].name,
+            farmerId: _kFarmers[i].farmerId,
+            avatarColor: _kAvatarBg[i],
+          ),
+        )
+        .toList();
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => SavedGroupDetailsScreen(
+          groupName: widget.groupName,
+          selectedFarmers: ordered,
+          totalFarmers: _kFarmers.length,
+        ),
+      ),
     );
-    Navigator.pop(context);
   }
 
   @override
