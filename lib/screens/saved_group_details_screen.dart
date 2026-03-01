@@ -24,12 +24,14 @@ class SavedGroupDetailsScreen extends StatefulWidget {
   final String groupName;
   final List<SelectedFarmer> selectedFarmers;
   final int totalFarmers;
+  final int year;
 
   const SavedGroupDetailsScreen({
     super.key,
     required this.groupName,
     required this.selectedFarmers,
     required this.totalFarmers,
+    required this.year,
   });
 
   @override
@@ -72,7 +74,7 @@ class _SavedGroupDetailsScreenState extends State<SavedGroupDetailsScreen> {
   void _selectSupport() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (_) => const SelectSupportScreen()),
+      MaterialPageRoute(builder: (_) => SelectSupportScreen(year: widget.year)),
     );
   }
 

@@ -68,8 +68,9 @@ const List<Color> _kAvatarBg = [
 // ─── Screen ───────────────────────────────────────────────────────────────────
 class FarmerSelectionScreen extends StatefulWidget {
   final String groupName;
+  final int year;
 
-  const FarmerSelectionScreen({super.key, required this.groupName});
+  const FarmerSelectionScreen({super.key, required this.groupName, required this.year});
 
   @override
   State<FarmerSelectionScreen> createState() => _FarmerSelectionScreenState();
@@ -145,6 +146,7 @@ class _FarmerSelectionScreenState extends State<FarmerSelectionScreen> {
           groupName: widget.groupName,
           selectedFarmers: ordered,
           totalFarmers: _kFarmers.length,
+          year: widget.year,
         ),
       ),
     );
